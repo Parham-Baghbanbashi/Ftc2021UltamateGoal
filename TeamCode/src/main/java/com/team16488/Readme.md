@@ -1,4 +1,4 @@
-#File structure explanation
+# File structure explanation
 com/ 
     team16488/
         autonomous/ # In this folder are separate autonomous modes
