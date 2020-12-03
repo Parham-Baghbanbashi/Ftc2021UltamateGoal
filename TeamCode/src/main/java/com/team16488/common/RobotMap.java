@@ -1,4 +1,4 @@
-package com.team16488.compoonents;
+package com.team16488.common;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -19,25 +19,37 @@ public class RobotMap {
 
     // Robot objects(project wide, hence why its public)
     // drivetrain motors
-    public DcMotor FrontRightMotor;
-    public DcMotor FrontLeftMotor;
-    public DcMotor RearRightMotor;
-    public DcMotor RearLeftMotor;
+    public DcMotor FrontRightMotor  = null;
+    public DcMotor FrontLeftMotor   = null;
+    public DcMotor RearRightMotor   = null;
+    public DcMotor RearLeftMotor    = null;
 
     public RobotMap(){
         // constructor
     }
 
-    public void mapHardware(){
+    public void mapHardware(HardwareMap hardwareMap){
         // here we map all of our hardware components
+        map = hardwareMap;
 
+        //---------------------------------------------------------------
+        // Drive Train
+        //---------------------------------------------------------------
         //Drive train
-        FrontLeftMotor = map.dcMotor.get("FL");
-        FrontRightMotor = map.dcMotor.get("FR");
-        RearRightMotor = map.dcMotor.get("BR");
-        RearLeftMotor = map.dcMotor.get("BL");
+        FrontLeftMotor  = map.get(DcMotor.class, "FL");
+        FrontRightMotor = map.get(DcMotor.class, "FR");
+        RearRightMotor  = map.get(DcMotor.class, "BR");
+        RearLeftMotor   = map.get(DcMotor.class, "BL");
+
+        //set the left side direction to reverse
         FrontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         RearLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+
+        //set all powers to zero
+        FrontRightMotor.setPower(0);
+        FrontLeftMotor.setPower(0);
+        RearRightMotor.setPower(0);
+        RearLeftMotor.setPower(0);
     }
 
 }

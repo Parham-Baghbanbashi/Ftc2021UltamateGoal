@@ -1,10 +1,11 @@
 package com.team16488.compoonents;
 
-import com.qualcomm.robotcore.hardware.Gamepad;
-import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.team16488.common.RobotMap;
 
 /**
- * This is the class for the mecanum drive. like all components, it can also be used for autonomous code
+ * This is the class for the mecanum drive. like all components,
+ * it can also be used for autonomous code
  *
  */
 public class MecanumDrive {
@@ -43,6 +44,34 @@ public class MecanumDrive {
         this.robot.FrontRightMotor.setPower(v2);
         this.robot.RearLeftMotor.setPower(v3);
         this.robot.RearRightMotor.setPower(v4);
+    }
+
+    public void operatorDriveInit(){
+        this.robot.FrontLeftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        this.robot.RearLeftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        this.robot.FrontRightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        this.robot.RearRightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+    }
+
+
+    public void encoderDriveInit(){
+        this.robot.FrontLeftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        this.robot.RearLeftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        this.robot.FrontRightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        this.robot.RearRightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        this.robot.FrontLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        this.robot.RearLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        this.robot.FrontRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        this.robot.RearRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
+    public void stopDrive(){
+        this.robot.FrontLeftMotor.setPower(0);
+        this.robot.FrontRightMotor.setPower(0);
+        this.robot.RearLeftMotor.setPower(0);
+        this.robot.RearRightMotor.setPower(0);
     }
 
 
