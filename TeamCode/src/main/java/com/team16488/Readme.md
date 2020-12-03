@@ -11,3 +11,5 @@
             robot.java # Main Robot File
             
 note: you may have to go to C:\Users\%username%\AppData\Local\Android\Sdk\tools\bin and run sdkmanager --licences to activate android studio licences
+
+robot.java is for compiling all of the robot code
