@@ -2,6 +2,7 @@ package com.team16488.autonomus;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.team16488.common.NUMERICAL_CONSTANTS;
 import com.team16488.compoonents.MecanumDrive;
 import com.team16488.common.RobotMap;
 
@@ -11,6 +12,9 @@ public class auto extends LinearOpMode {
     private final ElapsedTime     runtime = new ElapsedTime();
     // load components
     private final MecanumDrive    drive   = new MecanumDrive(this.robot);
+
+    // calling numerical constants
+    // public double ex;
 
     @Override
     public void runOpMode(){
@@ -32,5 +36,7 @@ public class auto extends LinearOpMode {
             //drive.stopDrive();
             // that would drive then stop with the right if statements between those two methods
 
+        // calling numerical constants
+        // ex = NUMERICAL_CONSTANTS.TICKS_PER_INCH;
     }
 }
